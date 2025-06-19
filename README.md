@@ -5,6 +5,19 @@
 ```
 scons EXTRAS=../NVmain build/X86/gem5.opt
 ```
+常用指令
+```
+cd gem5-525ce650e1a5bbe71c39d4b15598d6c003cc9f9e
+```
+```
+git add .
+```
+```
+git commit -m "修改內容"
+```
+```
+git push
+```
 ## TODOs
 - [x] Q0: Gem5 + NVmain Build-up
 - [ ] Q1: Enable L3 last level cache in GEM5 + NVmain
