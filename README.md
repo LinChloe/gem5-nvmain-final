@@ -6,7 +6,7 @@
 scons EXTRAS=../NVmain build/X86/gem5.opt
 ```
 ## TODOs
-- [ ] Q0: Gem5 + NVmain Build-up
+- [x] Q0: Gem5 + NVmain Build-up
 - [ ] Q1: Enable L3 last level cache in GEM5 + NVmain
 - [ ] Q2: Config last level cache to 2-way and full and full-way associative ache and test performance.
 - [ ] Q3: Modify last level cache policy based on frequency based replacement policy
