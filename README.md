@@ -78,6 +78,7 @@ grep 'system.l3.*miss_rate' m5out/stats.txt
 ![image](https://github.com/user-attachments/assets/b01dba2c-6d8a-49d3-8b8f-6e88118a94a0)
 - full
 ![image](https://github.com/user-attachments/assets/c89dcc41-c117-441b-a934-38fe1587210b)
+![image](https://github.com/user-attachments/assets/3215b646-f0d1-446c-b810-2368faa6b2f4)
 
 ## Q4
 
