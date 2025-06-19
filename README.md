@@ -1,6 +1,10 @@
 # gem5-nvmain-final
 計組期末專案
 
+更改 Gem5 中的檔案之後要記得編譯
+```
+scons EXTRAS=../NVmain build/X86/gem5.opt
+```
 ## TODOs
 - [ ] Q0: Gem5 + NVmain Build-up
 - [ ] Q1: Enable L3 last level cache in GEM5 + NVmain
