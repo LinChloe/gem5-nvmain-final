@@ -45,7 +45,7 @@ git push
 * CacheConfig.py 
 - 前面四個檔案只是增加 L3 cache 的parameter ，照著 L2 cache的設定去做模仿就可以。
 - CacheConfig.py  需要讓 L3 cache 連接整個 Gem5 系統，這邊要注意 L2 跟L3 這兩個  cache的關係， 要讓系統 在已使用 L2 cache的情況下才能使用 L3 cache
-測試指令
+  "\n"測試指令
 ```
 ./build/X86/gem5.opt configs/example/se.py -c tests/test-progs/hello/bin/x86/linux/hello --cpu-type=TimingSimpleCPU --caches --l2cache --l3cache --mem-type=NVMainMemory --nvmain-config=../NVmain/Config/PCM_ISSCC_2012_4GB.config
 ```
