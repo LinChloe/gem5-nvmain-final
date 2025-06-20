@@ -23,7 +23,7 @@ git push
 - [x] Q2: Enable L3 last level cache in GEM5 + NVmain
 - [x] Q3: Config last level cache to 2-way and full-way associative ache and test performance.
 - [x] Q4: Modify last level cache policy based on frequency based replacement policy
-- [x] Q5: Test the performance of write back and write through policy based on 4-way associatve cache with isscc_pcm  
+- [ ] Q5: Test the performance of write back and write through policy based on 4-way associatve cache with isscc_pcm  
 - Bonus
     - [ ] Design last level cache policy to reduce the energy consumption of pcm_based main memory
     - [ ] Baseline: LRU
@@ -104,6 +104,10 @@ grep -A 5 "\[system.l3.replacement_policy\]" m5out/config.ini
 
 ## Q5 Test the performance of write back and write through policy based on 4-way associatve cache with isscc_pcm  
 4-way : --l3_assoc=4
+
+在 se.py 中新增參數控制 ?
+在 gem5 Python 配置中設定 write policy
+以 configs/common/CacheConfig.py 為例（或你自己的 se.py 中定義 Cache 的地方）：?
 
 write back
 ```
