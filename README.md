@@ -74,6 +74,7 @@ grep -A 10 "\[system.l3\]" m5out/config.ini
 ![image](https://github.com/user-attachments/assets/96a8d2db-c7ac-4b96-b824-6e357e9ac1a0)
 
 - full -16384
+![image](https://github.com/user-attachments/assets/b02689d1-8191-47ee-b01d-d0a14aa476ea)
 
 
 
