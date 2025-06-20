@@ -28,7 +28,7 @@ git push
     - [ ] Design last level cache policy to reduce the energy consumption of pcm_based main memory
     - [ ] Baseline: LRU
 ## Q1
-
+hello world!
 ```
 ./build/X86/gem5.opt configs/example/se.py   -c tests/test-progs/hello/bin/x86/linux/hello   --cpu-type=TimingSimpleCPU   --caches   --l2cache   --mem-type=NVMainMemory   --nvmain-config=../NVmain/Config/PCM_ISSCC_2012_4GB.config
 
@@ -86,7 +86,17 @@ grep 'system.l3.*miss_rate' m5out/stats.txt
 - full -1
 ![image](https://github.com/user-attachments/assets/f64cffc5-f66e-44b7-8ac5-4411023f7d40)
 
-## Q4
+## Q4 Modify last level cache policy based on frequency based replacement policy
+
+在~/gem5-525ce650e1a5bbe71c39d4b15598d6c003cc9f9e/configs/common$ nano Caches.py 加在L3
+```
+replacement_policy = Param.BaseReplacementPolicy(LFURP(), "Replacement policy")
+```
+觀看結果指令
+```
+grep -A 5 "\[system.l3.replacement_policy\]" m5out/config.ini
+```
+![image](https://github.com/user-attachments/assets/38b2e040-42f1-4f03-9451-d9ed873d4f34)
 
 ## Q5
 
