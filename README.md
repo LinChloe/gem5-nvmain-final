@@ -85,6 +85,11 @@ arraysize 大於cachesize = >conflict misses
 ```
 replacement_policy = Param.BaseReplacementPolicy(LFURP(), "Replacement policy")
 ```
+gem5-525ce650e1a5bbe71c39d4b15598d6c003cc9f9e/src/mem/cache/replacement_policies/lfu_rp.cc
+
+gem5-525ce650e1a5bbe71c39d4b15598d6c003cc9f9e/src/mem/cache/replacement_policies/lfu_rp.hh
+
+參考 :https://hackmd.io/@takoooo/HJhuRdWUC#Q5
 觀看指令
 ```
 grep -A 5 "\[system.l3.replacement_policy\]" m5out/config.ini
