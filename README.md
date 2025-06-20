@@ -22,8 +22,8 @@ git push
 - [x] Q1: Gem5 + NVmain Build-up
 - [x] Q2: Enable L3 last level cache in GEM5 + NVmain
 - [x] Q3: Config last level cache to 2-way and full-way associative ache and test performance.
-- [ ] Q4: Modify last level cache policy based on frequency based replacement policy
-- [ ] Q5: Test the performance of write back and write through policy based on 4-wau associatve cache with isscc_pcm  
+- [x] Q4: Modify last level cache policy based on frequency based replacement policy
+- [x] Q5: Test the performance of write back and write through policy based on 4-way associatve cache with isscc_pcm  
 - Bonus
     - [ ] Design last level cache policy to reduce the energy consumption of pcm_based main memory
     - [ ] Baseline: LRU
@@ -102,6 +102,29 @@ grep -A 5 "\[system.l3.replacement_policy\]" m5out/config.ini
 ```
 ![image](https://github.com/user-attachments/assets/38b2e040-42f1-4f03-9451-d9ed873d4f34)
 
-## Q5
+## Q5 Test the performance of write back and write through policy based on 4-way associatve cache with isscc_pcm  
+4-way : --l3_assoc=4
 
+write back
+```
+./build/X86/gem5.opt configs/example/se.py -c ../benchmark/multiply \
+  --cpu-type=TimingSimpleCPU \
+  --caches --l2cache --l3cache --l3_assoc=4 \
+  --l1i_size=32kB --l1d_size=32kB --l2_size=256kB --l3_size=2MB \
+  --mem-type=NVMainMemory \
+  --nvmain-config=/path/to/PCM_ISSCC_2012_4GB.config \
+  --write-back=true \
+  --write-through=false
+```
+write through
+```
+./build/X86/gem5.opt configs/example/se.py -c ../benchmark/multiply \
+  --cpu-type=TimingSimpleCPU \
+  --caches --l2cache --l3cache --l3_assoc=4 \
+  --l1i_size=32kB --l1d_size=32kB --l2_size=256kB --l3_size=2MB \
+  --mem-type=NVMainMemory \
+  --nvmain-config=/path/to/PCM_ISSCC_2012_4GB.config \
+  --write-back=false \
+  --write-through=true
+```
 ## Bouns
