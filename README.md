@@ -77,6 +77,7 @@ grep -A 10 "\[system.l3\]" m5out/config.ini
 ![image](https://github.com/user-attachments/assets/b02689d1-8191-47ee-b01d-d0a14aa476ea)
 
 觀察 system.l3.overall_miss_rate
+arraysize 大於cachesize = >conflict misses
 
 ## Q4 Modify last level cache policy based on frequency based replacement policy
 
