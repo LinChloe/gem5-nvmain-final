@@ -79,6 +79,10 @@ full-way : l3_assoc = 1
 ```
 grep 'system.l3.*miss_rate' m5out/stats.txt
 ```
+查看 assoc
+```
+grep -A 10 "\[system.l3\]" m5out/config.ini
+```
 - two
 ![image](https://github.com/user-attachments/assets/b01dba2c-6d8a-49d3-8b8f-6e88118a94a0)
 - full -16384
