@@ -37,7 +37,7 @@ hello world!
 
 ## Q2
 ### 提示
-需要修改的檔案 在gem5gem5gem5 資料夾中的
+需要修改的檔案 在gem5 資料夾中的
 * Options.py 
 * Caches.py 
 * Xbar.py 
