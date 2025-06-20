@@ -55,7 +55,7 @@ git push
 grep -i l3 m5out/stats.txt
 ```
 ## Q3 Config last level cache to 2-way and full-way associative ache and test performance.
-2-way
+2-way : --l3_assoc=2
 ```
 ./build/X86/gem5.opt configs/example/se.py \
   -c ../benchmark/quicksort \
@@ -65,9 +65,14 @@ grep -i l3 m5out/stats.txt
   --mem-type=NVMainMemory \
   --nvmain-config=../NVmain/Config/PCM_ISSCC_2012_4GB.config
 ```
-full-way : l3_assoc = l3_size_bytes // block_size
+full-way : l3_assoc = 16384 (l3_size_bytes // block_size)
 ```
 ./build/X86/gem5.opt configs/example/se.py -c ../benchmark/quicksort --cpu-type=TimingSimpleCPU --caches --l2cache --l3cache --l3_assoc=16384 --l1i_size=32kB --l1d_size=32kB --l2_size=128kB --l3_size=1MB --mem-type=NVMainMemory --nvmain-config=../NVmain/Config/PCM_ISSCC_2012_4GB.config
+
+```
+full-way : l3_assoc = 1 
+```
+./build/X86/gem5.opt configs/example/se.py -c ../benchmark/quicksort --cpu-type=TimingSimpleCPU --caches --l2cache --l3cache --l3_assoc=1 --l1i_size=32kB --l1d_size=32kB --l2_size=128kB --l3_size=1MB --mem-type=NVMainMemory --nvmain-config=../NVmain/Config/PCM_ISSCC_2012_4GB.config
 
 ```
 查看 miss rate
@@ -76,8 +81,10 @@ grep 'system.l3.*miss_rate' m5out/stats.txt
 ```
 - two
 ![image](https://github.com/user-attachments/assets/b01dba2c-6d8a-49d3-8b8f-6e88118a94a0)
-- full
+- full -16384
 ![image](https://github.com/user-attachments/assets/3215b646-f0d1-446c-b810-2368faa6b2f4)
+- full -1
+![image](https://github.com/user-attachments/assets/f64cffc5-f66e-44b7-8ac5-4411023f7d40)
 
 ## Q4
 
