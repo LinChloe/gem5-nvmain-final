@@ -58,7 +58,7 @@ grep -i l3 m5out/stats.txt
 2-way : --l3_assoc=2
 ```
 ./build/X86/gem5.opt configs/example/se.py \
-  -c ../benchmark/quicksort \
+  -c ../benchmark/quicksort.out \
   --cpu-type=TimingSimpleCPU \
   --caches --l2cache --l3cache --l3_assoc=2 \
   --l1i_size=32kB --l1d_size=32kB --l2_size=128kB --l3_size=1MB \
