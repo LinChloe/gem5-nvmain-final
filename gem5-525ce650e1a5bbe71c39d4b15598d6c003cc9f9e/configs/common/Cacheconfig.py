@@ -47,7 +47,7 @@ import m5
 from m5.objects import *
 from Caches import *
 
-def config_cache(options, system, writeback=True):
+def config_cache(options, system):
     if options.external_memory_system and (options.caches or options.l2cache):
         print("External caches and internal caches are exclusive options.\n")
         sys.exit(1)
@@ -88,12 +88,10 @@ def config_cache(options, system, writeback=True):
         # same clock as the CPUs.
         system.l2 = l2_cache_class(clk_domain=system.cpu_clk_domain,
                                    size=options.l2_size,
-                                   assoc=options.l2_assoc,
-                               writeback=writeback)
+                                   assoc=options.l2_assoc)
         system.l3 = l3_cache_class(clk_domain=system.cpu_clk_domain,
                                    size=options.l3_size,
-                                   assoc=options.l3_assoc,
-                               writeback=writeback)
+                                   assoc=options.l3_assoc)
 
         system.tol2bus = L2XBar(clk_domain = system.cpu_clk_domain)
         system.tol3bus = L3XBar(clk_domain = system.cpu_clk_domain)
@@ -109,8 +107,7 @@ def config_cache(options, system, writeback=True):
         # same clock as the CPUs.
         system.l2 = l2_cache_class(clk_domain=system.cpu_clk_domain,
                                    size=options.l2_size,
-                                   assoc=options.l2_assoc,
-                               writeback=writeback)
+                                   assoc=options.l2_assoc)
 
         system.tol2bus = L2XBar(clk_domain = system.cpu_clk_domain)
         system.l2.cpu_side = system.tol2bus.master

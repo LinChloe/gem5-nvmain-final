@@ -52,8 +52,7 @@ from m5.params import *
 from m5.proxy import *
 from m5.util.fdthelper import *
 
-from XBar import L2XBar
-from XBar import L3XBar
+from XBar import L2XBar, L3XBar
 from InstTracer import InstTracer
 from CPUTracers import ExeTracer
 from MemObject import MemObject
