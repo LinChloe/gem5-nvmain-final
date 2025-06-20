@@ -76,7 +76,7 @@ grep -A 10 "\[system.l3\]" m5out/config.ini
 - full -16384
 ![image](https://github.com/user-attachments/assets/b02689d1-8191-47ee-b01d-d0a14aa476ea)
 
-
+觀察 system.l3.overall_miss_rate
 
 ## Q4 Modify last level cache policy based on frequency based replacement policy
 
@@ -84,39 +84,23 @@ grep -A 10 "\[system.l3\]" m5out/config.ini
 ```
 replacement_policy = Param.BaseReplacementPolicy(LFURP(), "Replacement policy")
 ```
-觀看結果指令
+觀看指令
 ```
 grep -A 5 "\[system.l3.replacement_policy\]" m5out/config.ini
 ```
 ![image](https://github.com/user-attachments/assets/38b2e040-42f1-4f03-9451-d9ed873d4f34)
 
+觀察 : system.l3.replacements會變低
+
 ## Q5 Test the performance of write back and write through policy based on 4-way associatve cache with isscc_pcm  
 4-way : --l3_assoc=4
 
-在 se.py 中新增參數控制 ?
-在 gem5 Python 配置中設定 write policy
-以 configs/common/CacheConfig.py 為例（或你自己的 se.py 中定義 Cache 的地方）：?
+改base.cc
 
-write back
+我也搞不懂 ?
+
 ```
-./build/X86/gem5.opt configs/example/se.py -c ../benchmark/multiply \
-  --cpu-type=TimingSimpleCPU \
-  --caches --l2cache --l3cache --l3_assoc=4 \
-  --l1i_size=32kB --l1d_size=32kB --l2_size=256kB --l3_size=2MB \
-  --mem-type=NVMainMemory \
-  --nvmain-config=/path/to/PCM_ISSCC_2012_4GB.config \
-  --write-back=true \
-  --write-through=false
+./build/X86/gem5.opt configs/example/se.py -c ./multiply --cpu-type=TimingSimpleCPU --caches --l2cache --l3cache --l3_assoc=4 --l1i_size=32kB --l1d_size=32kB --l2_size=128kB --l3_size=1MB --mem-type=NVMainMemory --nvmain-config=../NVmain/Config/PCM_ISSCC_2012_4GB.config
 ```
-write through
-```
-./build/X86/gem5.opt configs/example/se.py -c ../benchmark/multiply \
-  --cpu-type=TimingSimpleCPU \
-  --caches --l2cache --l3cache --l3_assoc=4 \
-  --l1i_size=32kB --l1d_size=32kB --l2_size=256kB --l3_size=2MB \
-  --mem-type=NVMainMemory \
-  --nvmain-config=/path/to/PCM_ISSCC_2012_4GB.config \
-  --write-back=false \
-  --write-through=true
-```
+觀察 i0.defaultMemory.totalWriteRequests
 ## Bouns
